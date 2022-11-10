@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import java.util.EmptyStackException;
 
 /**
- * This is a stack class that will 'stack' a list of entries. This class was inspired by Dave Cohen
- * in his TDD demo video.
+ * This is a stack class that will 'stack' a list of entries.
+ * This class was inspired by Dave Cohen in his TDD demo video.
  * 
  * @author zkac151
  * 
@@ -48,10 +48,8 @@ public class Stack {
     if (size == 0) { // Checks to see if stack is empty, if stack empty, exception is thrown
       throw new EmptyStackException();
     }
-    Entry popped = values
-        .get(size - 1); /*
-                         * array list starts indexing from 0 so to find proper index must do size-1
-                         */
+    Entry popped = values.get(size - 1); /* array list starts indexing from 0 so to find proper
+                                            index must do size-1*/
     values.remove(size - 1); // removing the entry from the stack
     size = size - 1;
 
