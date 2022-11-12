@@ -42,7 +42,8 @@ public class NumStack { // extends Stack {
     try {
       return this.numStack.pop().getValue();
     } catch (BadTypeException e) {
-      return null;
+      //This can never happen since we only put numbers in this stack
+      return this.numStack.pop().getValue();
     }
 
   }

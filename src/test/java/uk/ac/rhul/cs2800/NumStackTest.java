@@ -7,7 +7,7 @@ import java.util.EmptyStackException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class NumStackTest { 
+public class NumStackTest {
 
   public NumStack stack;
   private float number;
@@ -34,7 +34,7 @@ public class NumStackTest {
         "Test that push increases the size of an empty stack.");
   }
 
-  // Test 3
+  // Test 3 pop is unexceptional meaning it can never throw an exception
   @Test
   void testPop() {
     stack.push(3f);
@@ -47,7 +47,7 @@ public class NumStackTest {
       fail("type not Number, doesn't have value");
       e.printStackTrace();
     }
-    
+
   }
 
   // Test 4
@@ -60,8 +60,7 @@ public class NumStackTest {
     for (int index = 0; index < 100; index++) {
       stack.pop();
     }
-    assertTrue(this.stack.isEmpty(),
-        "stack should be empty after equal amount of push and pop");
+    assertTrue(this.stack.isEmpty(), "stack should be empty after equal amount of push and pop");
 
   }
 
