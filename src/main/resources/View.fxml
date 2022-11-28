@@ -7,19 +7,18 @@
 <?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.Pane?>
 
-
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uk.ac.rhul.cs2800.CalcView">
+<Pane fx:id="pane" maxHeight="250.0" maxWidth="400.0" minHeight="155.0" minWidth="336.0" prefHeight="155.0" prefWidth="336.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uk.ac.rhul.cs2800.CalcView">
    <children>
-      <Label fx:id="expressionLabel" layoutX="38.0" layoutY="41.0" prefHeight="37.0" prefWidth="100.0" text="Expression" />
-      <TextField fx:id="expressionField" layoutX="112.0" layoutY="47.0" prefHeight="25.0" prefWidth="179.0" />
-      <RadioButton fx:id="infixButton" layoutX="88.0" layoutY="192.0" mnemonicParsing="false" selected="true" text="Infix">
+      <Label fx:id="expressionLabel" layoutX="24.0" layoutY="14.0" prefHeight="37.0" prefWidth="100.0" text="Expression" />
+      <TextField fx:id="expressionField" layoutX="105.0" layoutY="20.0" prefHeight="25.0" prefWidth="179.0" />
+      <RadioButton fx:id="infixButton" layoutX="24.0" layoutY="115.0" mnemonicParsing="false" selected="true" text="Infix">
          <toggleGroup>
-            <ToggleGroup fx:id="Calc" />
+            <ToggleGroup fx:id="calc" />
          </toggleGroup>
       </RadioButton>
-      <RadioButton fx:id="postfixButton" layoutX="237.0" layoutY="192.0" mnemonicParsing="false" text="Postfix" toggleGroup="$Calc" />
-      <Label fx:id="answerLabel" layoutX="38.0" layoutY="90.0" prefHeight="25.0" prefWidth="57.0" text="Answer" />
-      <TextField fx:id="answerField" editable="false" layoutX="110.0" layoutY="90.0" prefHeight="25.0" prefWidth="179.0" />
-      <Button fx:id="CalcButton" layoutX="162.0" layoutY="133.0" mnemonicParsing="false" onAction="#pressed" text="Calculate" />
+      <RadioButton fx:id="postfixButton" layoutX="88.0" layoutY="115.0" mnemonicParsing="false" text="Postfix" toggleGroup="$calc" />
+      <Label fx:id="answerLabel" layoutX="24.0" layoutY="53.0" prefHeight="25.0" prefWidth="57.0" text="Answer" />
+      <TextField fx:id="answerField" editable="false" layoutX="105.0" layoutY="53.0" prefHeight="25.0" prefWidth="179.0" />
+      <Button fx:id="calcButton" layoutX="162.0" layoutY="90.0" mnemonicParsing="false" onAction="#pressed" text="Calculate" />
    </children>
 </Pane>
