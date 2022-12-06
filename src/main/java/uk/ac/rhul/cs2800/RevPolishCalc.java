@@ -42,7 +42,7 @@ public class RevPolishCalc implements Calculator {
           for (int len = (symbols = Symbol.values()).length, i = 0; i < len; ++i) {
             Symbol current = symbols[i];
             /*
-             * checks to see if a valid operation was input if so symb is changed to that symbol.
+             * checks to see if a valid operation was input if so, symb is changed to that symbol.
              */
             if (current.toString().equals(nextToken)) {
               symb = current;
@@ -67,6 +67,10 @@ public class RevPolishCalc implements Calculator {
             case DIVIDE: {
               float secondNum = this.values.pop();
               float firstNum = this.values.pop();
+              if (secondNum == 0) {
+                throw new InvalidExpressionException("cannot divide by 0");
+                //Cannot divide by 0 as it will be infinity. So we must throw an Exception.
+              }
               this.values.push(firstNum / secondNum);
               continue;
             }

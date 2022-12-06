@@ -22,7 +22,7 @@ class RevPolishTest {
 
   // Test 2
   @Test
-  void singleInput() {
+  void singleInput() throws BadTypeException {
     float num = 1;
     try {
       assertEquals(num, this.calc.evaluate("1"),"checking to see if it can evaluate single number input");
@@ -43,9 +43,15 @@ class RevPolishTest {
 
   // Test 4
   @Test
-  void revPolishExp() throws InvalidExpressionException {
+  void revPolishExp() throws InvalidExpressionException, BadTypeException {
     assertEquals(this.calc.evaluate("5 8 +"), 13,"postfix notation should work now.");
     assertEquals(this.calc.evaluate("3 5 9 + *"), 42,"A more complicated expression.");
     assertEquals(this.calc.evaluate("2 4 3 - * 2 /"), 1,"Very complex expression.");
   }
+  //Test 5
+  @Test
+  void divideByZero() {
+    assertThrows(InvalidExpressionException.class, () -> this.calc.evaluate("8 0 /"), "should throw an Exception as divide by 0 is infinity");
+  }
+  
 }
