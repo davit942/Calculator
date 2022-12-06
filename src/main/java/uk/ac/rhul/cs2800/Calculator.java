@@ -11,6 +11,6 @@ public interface Calculator {
    * @return the answer
    * @throws InvalidExpressionException when a wrong expression form is inputed
    */
-  float evaluate(String what) throws InvalidExpressionException;
+  float evaluate(String what) throws InvalidExpressionException, BadTypeException;
 
 }
