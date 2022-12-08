@@ -11,8 +11,10 @@ public enum Symbol {
   RIGHT_BRACKET(")"),
   TIMES("*"),
   DIVIDE("/"),
+  IDIVIDE("?"),
   PLUS("+"),
   MINUS("-"),
+  IMINUS("_"),
   INVALID("!");
 
   private String special;

@@ -16,7 +16,7 @@ class RevPolishTest {
 
   // Test 1
   @Test
-  void EmptyStackTest() throws InvalidExpressionException {
+  void emptyStackTest() throws InvalidExpressionException {
     assertThrows(InvalidExpressionException.class, () -> this.calc.evaluate(""), "Stack is empty it should throw exception.");
   }
 

@@ -46,6 +46,7 @@ public class RevPolishCalc implements Calculator {
              */
             if (current.toString().equals(nextToken)) {
               symb = current;
+              // checks to see if a valid operation was input if so, symb is changed to that symbol
               break;
             }
           }
@@ -54,6 +55,14 @@ public class RevPolishCalc implements Calculator {
             case MINUS: {
               float secondNum = this.values.pop(); // second number is always first out
               float firstNum = this.values.pop();
+              this.values.push(firstNum - secondNum);
+              // pushing the evaluated number back onto stack
+              continue;
+            }
+            case IMINUS: {
+              // Made for Infix calc, numbers have to be reversed as minus is not commutative
+              float firstNum = this.values.pop(); // second number is always first out
+              float secondNum = this.values.pop();
               this.values.push(firstNum - secondNum);
               // pushing the evaluated number back onto stack
               continue;
@@ -69,7 +78,18 @@ public class RevPolishCalc implements Calculator {
               float firstNum = this.values.pop();
               if (secondNum == 0) {
                 throw new InvalidExpressionException("cannot divide by 0");
-                //Cannot divide by 0 as it will be infinity. So we must throw an Exception.
+                // Cannot divide by 0 as it will be infinity. So we must throw an Exception.
+              }
+              this.values.push(firstNum / secondNum);
+              continue;
+            }
+            case IDIVIDE: {
+              // Division is not commutative either so have to create new case.
+              float firstNum = this.values.pop();
+              float secondNum = this.values.pop();
+              if (secondNum == 0) {
+                throw new InvalidExpressionException("cannot divide by 0");
+                // Cannot divide by 0 as it will be infinity. So we must throw an Exception.
               }
               this.values.push(firstNum / secondNum);
               continue;
