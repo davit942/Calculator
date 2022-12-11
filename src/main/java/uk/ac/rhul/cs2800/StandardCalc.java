@@ -4,7 +4,8 @@ import java.util.EmptyStackException;
 import java.util.Scanner;
 
 /**
- * This class will handle Infix evaluations of the calculator.
+ * This class will handle Infix evaluations of the calculator. This class was created with some
+ * inspiration from the calculator.jar file given to us in the coursework section
  * 
  * @author zkac151
  *
@@ -43,10 +44,10 @@ public class StandardCalc implements Calculator {
         nextToken = this.flipStack.pop();
         // holds top item of stack
       } catch (EmptyStackException e) {
-        throw new EmptyStackException();
+        throw new InvalidExpressionException("Invalid Expression");
       }
       if (Character.isDigit(nextToken.charAt(0))) {
-        finEval.append(String.valueOf(nextToken) + " ");
+        finEval.append(Float.parseFloat(nextToken) + " ");
         /*
          * checks if its a number, if it is it will append it to our final evaluation string. if it
          * is not a number, it must be a Symbol so we find out which symbol it is.
@@ -54,7 +55,7 @@ public class StandardCalc implements Calculator {
       } else {
         Symbol symb = Symbol.INVALID;
         Symbol[] symbols;
-        // new Symbol list
+        // set symb to invalid in case a match is not found.
         for (int length = (symbols = Symbol.values()).length, i = 0; i < length; ++i) {
           Symbol val = symbols[i];
           if (val.toString().equals(nextToken)) {
@@ -79,20 +80,20 @@ public class StandardCalc implements Calculator {
       }
     }
     while (this.opStack.isEmpty() == false) {
-      Symbol nextOp2 = Symbol.INVALID;
+      Symbol current = Symbol.INVALID;
       try {
         // popping the current operation off the stack, if the stack is empty,
         // the exception is thrown.
-        nextOp2 = this.opStack.pop();
+        current = this.opStack.pop();
       } catch (EmptyStackException e) {
-        throw new EmptyStackException();
+        throw new InvalidExpressionException("invalid expression");
       }
 
 
-      finEval.append(String.valueOf(nextOp2.toString()) + " ");
+      finEval.append(String.valueOf(current.toString()) + " ");
       // adding the operation to the string buffer.
     }
     return this.rpCalc.evaluate(finEval.toString());
-    //Evaluating the finEval string through postfix and returning it.
+    // Evaluating the finEval string through postfix and returning it.
   }
 }

@@ -16,12 +16,14 @@ class InfixTest {
     this.calc = new StandardCalc();
   }
 
+  //Test 1
   @Test
   public final void emptyStackTest() throws InvalidExpressionException, BadTypeException {
     assertThrows(InvalidExpressionException.class, () -> this.calc.evaluate(""),
         "Stack is empty it should throw exception.");
   }
 
+  //Test 2
   @Test
   public final void oneDigit() throws BadTypeException {
     try {
@@ -31,12 +33,14 @@ class InfixTest {
     }
   }
   
+  //Test 3
   @Test
   public void twoDigits() throws InvalidExpressionException {
       assertThrows(InvalidExpressionException.class, () -> this.calc.evaluate("0 0"),
           "Stack has no operation should throw exception.");    
   }
 
+  // Test 4, Haven't implemented order of operations so it is currently just evaluating from left to right.
   @Test
   public void simpleExp() throws InvalidExpressionException, BadTypeException{
     assertEquals(this.calc.evaluate("12 / 6"),2);
@@ -45,5 +49,13 @@ class InfixTest {
     assertEquals(this.calc.evaluate("100 / 5 + 5 * 3"),75);
 
   }
+  
+//Test 6
+ @Test
+ public void postfixFailTest() throws InvalidExpressionException {
+   assertThrows(InvalidExpressionException.class, () -> this.calc.evaluate("1 1 +"),
+       "wrong format for infix, should throw exception."); // This doesn't work yet due to bug.
+ }
+
 
 }
