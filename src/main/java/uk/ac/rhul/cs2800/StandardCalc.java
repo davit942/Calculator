@@ -43,17 +43,16 @@ public class StandardCalc implements Calculator {
         nextToken = this.flipStack.pop();
         // holds top item of stack
       } catch (EmptyStackException e) {
-        throw new InvalidExpressionException("Invalid Expression");
+        throw new EmptyStackException();
       }
       if (Character.isDigit(nextToken.charAt(0))) {
-        finEval.append(Float.parseFloat(nextToken) + " ");
+        finEval.append(String.valueOf(nextToken) + " ");
         /*
          * checks if its a number, if it is it will append it to our final evaluation string. if it
-         * is not a number, it must be a Symbol so we move to else statement.
+         * is not a number, it must be a Symbol so we find out which symbol it is.
          */
       } else {
         Symbol symb = Symbol.INVALID;
-        // set symb to invalid in case a match is not found.
         Symbol[] symbols;
         // new Symbol list
         for (int length = (symbols = Symbol.values()).length, i = 0; i < length; ++i) {
@@ -80,17 +79,17 @@ public class StandardCalc implements Calculator {
       }
     }
     while (this.opStack.isEmpty() == false) {
-      Symbol currentSymb = Symbol.INVALID;
+      Symbol nextOp2 = Symbol.INVALID;
       try {
         // popping the current operation off the stack, if the stack is empty,
         // the exception is thrown.
-        currentSymb = this.opStack.pop();
+        nextOp2 = this.opStack.pop();
       } catch (EmptyStackException e) {
-        throw new InvalidExpressionException("invalid expression");
+        throw new EmptyStackException();
       }
 
 
-      finEval.append(String.valueOf(currentSymb.toString()) + " ");
+      finEval.append(String.valueOf(nextOp2.toString()) + " ");
       // adding the operation to the string buffer.
     }
     return this.rpCalc.evaluate(finEval.toString());
