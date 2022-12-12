@@ -53,4 +53,15 @@ public class StrStack {
 
   }
 
+  /**
+   * Checking top of stack without popping it out.
+   * 
+   * @return top of stack without popping
+   * @throws EmptyStackException if stack is empty.
+   * @throws BadTypeException if wrong type
+   */
+  public String top() throws EmptyStackException, BadTypeException {
+    return strStack.top().getString();
+  }
+
 }

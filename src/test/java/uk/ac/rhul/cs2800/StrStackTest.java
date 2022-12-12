@@ -66,6 +66,13 @@ public class StrStackTest {
     assertTrue(this.stack.isEmpty(), "stack should be empty after equal amount of push and pop");
 
   }
+  // Test 5
+  @Test
+  void testTop() throws EmptyStackException, BadTypeException {
+    stack.push(string);
+    stack.top();
+    assertFalse(this.stack.isEmpty(),"stack shouldn't be empty since we only checked the value and didnt pop");
+  }
 
 }
 
