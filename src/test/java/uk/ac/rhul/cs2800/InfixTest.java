@@ -50,11 +50,11 @@ class InfixTest {
 
   }
   
-//Test 6
+//Test 5 Now passes due to me checking if a float is followed by a float which is invalid syntax for infix
  @Test
  public void postfixFailTest() throws InvalidExpressionException {
    assertThrows(InvalidExpressionException.class, () -> this.calc.evaluate("1 1 +"),
-       "wrong format for infix, should throw exception."); // This doesn't work yet due to bug.
+       "wrong format for infix, should throw exception.");
  }
 
 

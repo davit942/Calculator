@@ -40,13 +40,17 @@ public class StandardCalc implements Calculator {
     reader.close();
     while (this.flipStack.isEmpty() == false) {
       String nextToken = null;
+      String afterToken = " ";
       try {
         nextToken = this.flipStack.pop();
+        if (this.flipStack.isEmpty() != true) {
+          afterToken = this.flipStack.top();
+        }
         // holds top item of stack
       } catch (EmptyStackException e) {
-        throw new InvalidExpressionException("Invalid Expression");
+        throw new InvalidExpressionException("Invalid Expression, stack empty");
       }
-      if (Character.isDigit(nextToken.charAt(0))) {
+      if (Character.isDigit(nextToken.charAt(0)) && !Character.isDigit(afterToken.charAt(0))) {
         finEval.append(Float.parseFloat(nextToken) + " ");
         /*
          * checks if its a number, if it is it will append it to our final evaluation string. if it
