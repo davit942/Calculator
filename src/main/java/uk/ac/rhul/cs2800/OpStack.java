@@ -45,5 +45,14 @@ public class OpStack {
     }
   }
 
+  /**Get top of stack without popping the item out.
+   * @return top of stack
+   * @throws EmptyStackException when called on an empty stack
+   * @throws BadTypeException when called on not a symbol
+   */
+  public Symbol top() throws EmptyStackException, BadTypeException {
+    return opStack.top().getSymbol();
+  }
+
 
 }

@@ -43,7 +43,7 @@ class InfixTest {
   // Test 4, Haven't implemented order of operations so it is currently just evaluating from left to right.
   @Test
   public void simpleExp() throws InvalidExpressionException, BadTypeException{
-    assertEquals(this.calc.evaluate("12 / 6"),2);
+    assertEquals(this.calc.evaluate("6 / 6"),1);
     assertEquals(this.calc.evaluate("2 + 5 - 3"),4);
     assertEquals(this.calc.evaluate("6 * 5 + 2 "),32);
     assertEquals(this.calc.evaluate("100 / 5 + 5 * 3"),75);
@@ -57,5 +57,10 @@ class InfixTest {
        "wrong format for infix, should throw exception.");
  }
 
+ //Test 6 Brackets are not passing the test, need to figure out why
+ @Test
+ public void complexExp() throws InvalidExpressionException, BadTypeException {
+   assertEquals(this.calc.evaluate("( 6 + 4 ) * 5"), 50, "should do brackets first then multiply by 5");
+ }
 
 }
