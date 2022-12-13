@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane fx:id="pane" maxHeight="250.0" maxWidth="400.0" minHeight="155.0" minWidth="336.0" prefHeight="155.0" prefWidth="336.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uk.ac.rhul.cs2800.CalcView">
+   <children>
+      <Label fx:id="expressionLabel" layoutX="24.0" layoutY="14.0" prefHeight="37.0" prefWidth="100.0" text="Expression" />
+      <TextField fx:id="expressionField" layoutX="105.0" layoutY="20.0" prefHeight="25.0" prefWidth="179.0" />
+      <RadioButton fx:id="infixButton" layoutX="24.0" layoutY="115.0" mnemonicParsing="false" selected="true" text="Infix">
+         <toggleGroup>
+            <ToggleGroup fx:id="calc" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="postfixButton" layoutX="88.0" layoutY="115.0" mnemonicParsing="false" text="Postfix" toggleGroup="$calc" />
+      <Label fx:id="answerLabel" layoutX="24.0" layoutY="53.0" prefHeight="25.0" prefWidth="57.0" text="Answer" />
+      <TextField fx:id="answerField" editable="false" layoutX="105.0" layoutY="53.0" prefHeight="25.0" prefWidth="179.0" />
+      <Button fx:id="calcButton" layoutX="162.0" layoutY="90.0" mnemonicParsing="false" onAction="#calcPressed" text="Calculate" />
+   </children>
+</Pane>
