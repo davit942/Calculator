@@ -1,7 +1,8 @@
 package uk.ac.rhul.cs2800;
 
 /**
- * A functional interface that we can then use to name an observer notification.
+ * A functional interface that we can then use to name an observer notification, This class was
+ * inspired by MVC-Seperated code by Dave Cohen.
  * 
  * @author zkac151
  *

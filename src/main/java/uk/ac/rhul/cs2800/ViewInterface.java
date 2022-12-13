@@ -3,7 +3,8 @@ package uk.ac.rhul.cs2800;
 import java.util.function.Consumer;
 
 /**
- * This interface controls how we link to the calculator.
+ * This interface controls how we link to the calculator, this class was inspired by MVC-Seperated
+ * and MVCJavaFX code by Dave Cohen.
  * 
  * @author zkac151
  *
@@ -37,6 +38,12 @@ public interface ViewInterface {
    * @param ans the answer.
    */
   void setAnswer(String ans);
+
+  /**
+   * Create a menu.
+   * 
+   */
+  void menu();
 
 
 }
